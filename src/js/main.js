@@ -53,4 +53,8 @@ function mainLoop() {
 
 //CONTROL
 //UPDATE
+function update() {
+  
+}
+
 //DRAWING
