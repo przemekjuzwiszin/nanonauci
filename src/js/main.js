@@ -52,4 +52,5 @@ function mainLoop() {
 }
 
 //CONTROL
+//UPDATE
 //DRAWING
