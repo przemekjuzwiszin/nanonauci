@@ -24,6 +24,24 @@ var NANONAUT_HEIGHT = 229;
 var GROUND_Y = 540;
 
 //PRECONFIGURATION
+var canvas = document.createElement('canvas');
+var c = canvas.getContext('2d');
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
+document.body.appendChild(canvas);
+
+var nanonautImage = new Image();
+nanonautImage.src = 'assets/img/Nanonaut.png';
+
+var nanonautX = 50;
+var nanonautY = 40;
+
+window.addEventListener('load', start);
+
+function start() {
+  window.requestAnimationFrame(mainLoop);
+}
+
 //MAIN LOOP
 //CONTROL
 //DRAWING
