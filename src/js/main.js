@@ -1,5 +1,7 @@
 "use strict";
 
+const { HotUpdateChunk } = require("webpack");
+
 // service worker registration - remove if you're not going to use it
 
 if ('serviceWorker' in navigator) {
@@ -43,5 +45,11 @@ function start() {
 }
 
 //MAIN LOOP
+function mainLoop() {
+  update();
+  draw();
+  window.requestAnimationFrame(mainLoop);
+}
+
 //CONTROL
 //DRAWING
