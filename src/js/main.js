@@ -16,3 +16,8 @@ if ('serviceWorker' in navigator) {
 
 // place your code below
 
+//CONSTANT
+//PRECONFIGURATION
+//MAIN LOOP
+//CONTROL
+//DRAWING
