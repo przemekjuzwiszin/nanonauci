@@ -56,3 +56,9 @@ function update() {
 }
 
 //DRAWING
+function draw() {
+  c.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  //Draw nanonaut
+  c.drawImage(nanonautImage, nanonautX, nanonautY);
+}
