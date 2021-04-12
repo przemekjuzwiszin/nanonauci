@@ -61,9 +61,8 @@ function update() {}
 
 //DRAWING
 function draw() {
-  
   //Draw sky
-  c.fillStyle = "lightSkyBlue";
+  c.fillStyle = "LightSkyBlue";
   c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
 
   //Draw earth
