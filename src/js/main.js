@@ -60,7 +60,13 @@ function mainLoop() {
 
 //CONTROL
 //UPDATE
-function update() {}
+function update() {
+  //Update nanonaut
+  nanonautY = nanonautY + 1;
+  if (nanonautY > (GROUND_Y - NANONAUT_HEIGHT)) {
+  nanonautY = GROUND_Y - NANONAUT_HEIGHT;
+  }
+}
 
 //DRAWING
 function draw() {
