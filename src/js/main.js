@@ -39,6 +39,9 @@ document.body.appendChild(canvas);
 var nanonautImage = new Image();
 nanonautImage.src = "assets/img/Nanonaut.png";
 
+var backgroundImage = new Image();
+backgroundImage.src = "assets/img/background.png";
+
 var nanonautX = 50;
 var nanonautY = 40;
 
