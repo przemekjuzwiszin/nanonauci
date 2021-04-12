@@ -68,6 +68,9 @@ function draw() {
   c.fillStyle = "LightSkyBlue";
   c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
 
+  //Draw background
+  c.drawImage(backgroundImage, 0, -210);
+
   //Draw earth
   c.fillStyle = "ForestGreen";
   c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
