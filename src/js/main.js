@@ -66,9 +66,9 @@ function update() {
   //Update nanonaut
   nanonautY = nanonautY + nanonautYspeed;
   nanonautYspeed = nanonautYspeed + NANONAUT_Y_ACCELERATION;
-  if (nanonautY > (GROUND_Y - NANONAUT_HEIGHT)) {
-  nanonautY = GROUND_Y - NANONAUT_HEIGHT;
-  nanonautYspeed = 0;
+  if (nanonautY > GROUND_Y - NANONAUT_HEIGHT) {
+    nanonautY = GROUND_Y - NANONAUT_HEIGHT;
+    nanonautYspeed = 0;
   }
 }
 
