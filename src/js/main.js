@@ -61,7 +61,13 @@ function update() {}
 
 //DRAWING
 function draw() {
-  c.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  //Draw sky
+  c.fillStyle = "LightSkyBlue";
+  c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
+
+  //Draw earth
+  c.fillStyle = "ForestGreen";
+  c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
 
   //Draw nanonaut
   c.drawImage(nanonautImage, nanonautX, nanonautY);
