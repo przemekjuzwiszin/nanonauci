@@ -28,6 +28,7 @@ var CANVAS_HEIGHT = 600;
 var NANONAUT_WIDTH = 181;
 var NANONAUT_HEIGHT = 229;
 var GROUND_Y = 540;
+var NANONAUT_Y_ACCELERATION = 1;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
@@ -44,6 +45,7 @@ backgroundImage.src = "assets/img/background.png";
 
 var nanonautX = 50;
 var nanonautY = 40;
+var nanonautYspeed = 0;
 
 window.addEventListener("load", start);
 
