@@ -64,9 +64,11 @@ function mainLoop() {
 //UPDATE
 function update() {
   //Update nanonaut
-  nanonautY = nanonautY + 1;
+  nanonautY = nanonautY + nanonautYspeed;
+  nanonautYspeed = nanonautYspeed + NANONAUT_Y_ACCELERATION;
   if (nanonautY > (GROUND_Y - NANONAUT_HEIGHT)) {
   nanonautY = GROUND_Y - NANONAUT_HEIGHT;
+  nanonautYspeed = 0;
   }
 }
 
