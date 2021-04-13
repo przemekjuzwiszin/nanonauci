@@ -49,7 +49,7 @@ var nanonautY = 40;
 var nanonautYspeed = 0;
 var spaceKeyIsPressed = false;
 
-window.addEventListener("keydown", oneKeyDown);
+window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
 
 window.addEventListener("load", start);
@@ -66,7 +66,7 @@ function mainLoop() {
 }
 
 //CONTROL
-function oneKeyDown(event) {
+function onKeyDown(event) {
 if (event.keyCode === SPACE_KEYCODE) {
   spaceKeyIsPressed = true;
 }
