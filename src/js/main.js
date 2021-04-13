@@ -69,9 +69,9 @@ function mainLoop() {
 
 //CONTROL
 function onKeyDown(event) {
-if (event.keyCode === SPACE_KEYCODE) {
-  spaceKeyIsPressed = true;
-}
+  if (event.keyCode === SPACE_KEYCODE) {
+    spaceKeyIsPressed = true;
+  }
 }
 
 function onKeyUp(event) {
@@ -90,7 +90,7 @@ function update() {
   //Update nanonaut
   nanonautY = nanonautY + nanonautYspeed;
   nanonautYspeed = nanonautYspeed + NANONAUT_Y_ACCELERATION;
-  if (nanonautY > (GROUND_Y - NANONAUT_HEIGHT)) {
+  if (nanonautY > GROUND_Y - NANONAUT_HEIGHT) {
     nanonautY = GROUND_Y - NANONAUT_HEIGHT;
     nanonautYspeed = 0;
     nanonautIsInTheAir = false;
