@@ -29,6 +29,7 @@ var NANONAUT_WIDTH = 181;
 var NANONAUT_HEIGHT = 229;
 var GROUND_Y = 540;
 var NANONAUT_Y_ACCELERATION = 1;
+var SPACE_KEYCODE = 32;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
