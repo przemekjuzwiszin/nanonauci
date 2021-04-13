@@ -63,6 +63,12 @@ function mainLoop() {
 }
 
 //CONTROL
+function oneKeyDown(event) {
+if (event.keyCode === 32) {
+  console.log("Naciśnięto spację.");
+}
+}
+
 //UPDATE
 function update() {
   //Update nanonaut
