@@ -47,6 +47,8 @@ var nanonautX = 50;
 var nanonautY = 40;
 var nanonautYspeed = 0;
 
+window.addEventListener("keydown", oneKeyDown);
+
 window.addEventListener("load", start);
 
 function start() {
