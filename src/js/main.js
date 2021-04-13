@@ -72,6 +72,12 @@ if (event.keyCode === SPACE_KEYCODE) {
 }
 }
 
+function onKeyUp(event) {
+  if (event.keyCode === SPACE_KEYCODE) {
+    spaceKeyIsPressed = false;
+  }
+}
+
 //UPDATE
 function update() {
   //Update nanonaut
