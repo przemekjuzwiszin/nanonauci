@@ -81,6 +81,10 @@ function onKeyUp(event) {
 
 //UPDATE
 function update() {
+  if (spaceKeyIsPressed) {
+    nanonautYspeed = -NANONAUT_JUMP_SPEED;
+  }
+
   //Update nanonaut
   nanonautY = nanonautY + nanonautYspeed;
   nanonautYspeed = nanonautYspeed + NANONAUT_Y_ACCELERATION;
