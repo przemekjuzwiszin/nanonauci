@@ -47,6 +47,7 @@ backgroundImage.src = "assets/img/background.png";
 var nanonautX = 50;
 var nanonautY = 40;
 var nanonautYspeed = 0;
+var spaceKeyIsPressed = false;
 
 window.addEventListener("keydown", oneKeyDown);
 
