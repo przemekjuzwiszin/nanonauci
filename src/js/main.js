@@ -50,6 +50,7 @@ var nanonautYspeed = 0;
 var spaceKeyIsPressed = false;
 
 window.addEventListener("keydown", oneKeyDown);
+window.addEventListener("keyup", onKeyUp);
 
 window.addEventListener("load", start);
 
