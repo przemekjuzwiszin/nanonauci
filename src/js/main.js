@@ -66,8 +66,8 @@ function mainLoop() {
 
 //CONTROL
 function oneKeyDown(event) {
-if (event.keyCode === 32) {
-  console.log("Naciśnięto spację.");
+if (event.keyCode === SPACE_KEYCODE) {
+  spaceKeyIsPressed = true;
 }
 }
 
