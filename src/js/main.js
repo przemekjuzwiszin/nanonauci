@@ -99,6 +99,9 @@ function update() {
     nanonautYspeed = 0;
     nanonautIsInTheAir = false;
   }
+
+  //Update camera
+  cameraX = nanonautX - 150;
 }
 
 //DRAWING
