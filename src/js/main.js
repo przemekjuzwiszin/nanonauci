@@ -51,6 +51,8 @@ var nanonautY = 40;
 var nanonautYspeed = 0;
 var nanonautIsInTheAir = false;
 var spaceKeyIsPressed = false;
+var cameraX = 0;
+var cameraY = 0;
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
