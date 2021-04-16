@@ -111,12 +111,12 @@ function draw() {
   c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
 
   //Draw background
-  c.drawImage(backgroundImage, 0, -210);
+  c.drawImage(backgroundImage, 0 - cameraX, -210);
 
   //Draw earth
   c.fillStyle = "ForestGreen";
   c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
 
   //Draw nanonaut
-  c.drawImage(nanonautImage, nanonautX, nanonautY);
+  c.drawImage(nanonautImage, nanonautX - cameraX, nanonautY - cameraY);
 }
