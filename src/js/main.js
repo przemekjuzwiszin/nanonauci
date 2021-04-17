@@ -112,7 +112,8 @@ function draw() {
   c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
 
   //Draw background
-  c.drawImage(backgroundImage, 0 - cameraX, -210);
+  var backgroundX = - (cameraX % BACKGROUND_WIDTH);
+  c.drawImage(backgroundImage, backgroundX, -210);
 
   //Draw earth
   c.fillStyle = "ForestGreen";
