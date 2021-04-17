@@ -47,7 +47,7 @@ nanonautImage.src = "assets/img/Nanonaut.png";
 var backgroundImage = new Image();
 backgroundImage.src = "assets/img/background.png";
 
-var nanonautX = 50;
+var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = 40;
 var nanonautYspeed = 0;
 var nanonautIsInTheAir = false;
