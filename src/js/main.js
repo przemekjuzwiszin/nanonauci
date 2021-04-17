@@ -31,6 +31,8 @@ var GROUND_Y = 540;
 var NANONAUT_Y_ACCELERATION = 1;
 var SPACE_KEYCODE = 32;
 var NANONAUT_JUMP_SPEED = 20;
+var NANONAUT_X_SPEED = 5;
+var BACKGROUND_WIDTH = 1000;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
@@ -45,11 +47,13 @@ nanonautImage.src = "assets/img/Nanonaut.png";
 var backgroundImage = new Image();
 backgroundImage.src = "assets/img/background.png";
 
-var nanonautX = 50;
-var nanonautY = 40;
+var nanonautX = CANVAS_WIDTH / 2;
+var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
 var nanonautIsInTheAir = false;
 var spaceKeyIsPressed = false;
+var cameraX = 0;
+var cameraY = 0;
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
@@ -82,6 +86,7 @@ function onKeyUp(event) {
 
 //UPDATE
 function update() {
+  nanonautX = nanonautX + NANONAUT_X_SPEED;
   if (spaceKeyIsPressed && !nanonautIsInTheAir) {
     nanonautYspeed = -NANONAUT_JUMP_SPEED;
     nanonautIsInTheAir = true;
@@ -95,6 +100,9 @@ function update() {
     nanonautYspeed = 0;
     nanonautIsInTheAir = false;
   }
+
+  //Update camera
+  cameraX = nanonautX - 150;
 }
 
 //DRAWING
@@ -104,12 +112,14 @@ function draw() {
   c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
 
   //Draw background
-  c.drawImage(backgroundImage, 0, -210);
+  var backgroundX = - (cameraX % BACKGROUND_WIDTH);
+  c.drawImage(backgroundImage, backgroundX, -210);
+  c.drawImage(backgroundImage, backgroundX + BACKGROUND_WIDTH, - 210);
 
   //Draw earth
   c.fillStyle = "ForestGreen";
   c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
 
   //Draw nanonaut
-  c.drawImage(nanonautImage, nanonautX, nanonautY);
+  c.drawImage(nanonautImage, nanonautX - cameraX, nanonautY - cameraY);
 }
