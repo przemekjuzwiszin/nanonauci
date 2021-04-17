@@ -32,6 +32,7 @@ var NANONAUT_Y_ACCELERATION = 1;
 var SPACE_KEYCODE = 32;
 var NANONAUT_JUMP_SPEED = 20;
 var NANONAUT_X_SPEED = 5;
+var BACKGROUND_WIDTH = 1000;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
