@@ -104,6 +104,12 @@ function update() {
     nanonautIsInTheAir = false;
   }
 
+  //Update animation
+  nanonautFrameNr = nanonautFrameNr + 1;
+  if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
+    nanonautFrameNr = 0;
+  }
+
   //Update camera
   cameraX = nanonautX - 150;
 }
