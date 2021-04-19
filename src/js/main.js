@@ -109,7 +109,7 @@ function update() {
   }
 
   //Update animation
-  if (gameFrameCounter % NANONAUT_ANIMATION_SPEED === 0) {
+  if ((gameFrameCounter % NANONAUT_ANIMATION_SPEED) === 0) {
     nanonautFrameNr = nanonautFrameNr + 1;
     if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
       nanonautFrameNr = 0;
