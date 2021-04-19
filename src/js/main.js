@@ -124,5 +124,6 @@ function draw() {
   c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
 
   //Draw nanonaut
+  var nanonautSpriteSheetRow = Math.floor(nanonautFrameNr / NANONAUT_NR_FRAMES_PER_ROW);
   c.drawImage(nanonautImage, nanonautX - cameraX, nanonautY - cameraY);
 }
