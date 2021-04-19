@@ -58,6 +58,7 @@ var spaceKeyIsPressed = false;
 var cameraX = 0;
 var cameraY = 0;
 var nanonautFrameNr = 0;
+var gameFrameCounter = 0;
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
