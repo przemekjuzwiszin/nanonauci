@@ -128,5 +128,5 @@ function draw() {
   var nanonautSpriteSheetColumn = nanonautFrameNr % NANONAUT_NR_FRAMES_PER_ROW;
   var nanonautSpriteSheetX = nanonautSpriteSheetColumn * NANONAUT_WIDTH;
   var nanonautSpriteSheetY = nanonautSpriteSheetRow * NANONAUT_HEIGHT;
-  c.drawImage(nanonautImage, nanonautX - cameraX, nanonautY - cameraY);
+  c.drawImage(nanonautImage, nanonautSpriteSheetX, nanonautSpriteSheetY, NANONAUT_WIDTH, NANONAUT_HEIGHT, nanonautX - cameraX, nanonautY - cameraY, NANONAUT_WIDTH, NANONAUT_HEIGHT);
 }
