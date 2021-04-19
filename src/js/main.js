@@ -42,7 +42,7 @@ canvas.height = CANVAS_HEIGHT;
 document.body.appendChild(canvas);
 
 var nanonautImage = new Image();
-nanonautImage.src = "assets/img/Nanonaut.png";
+nanonautImage.src = "assets/img/animatedNanonaut.png";
 
 var backgroundImage = new Image();
 backgroundImage.src = "assets/img/background.png";
