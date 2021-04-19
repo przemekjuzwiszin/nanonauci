@@ -109,13 +109,13 @@ function update() {
   }
 
   //Update animation
-  if ((gameFrameCounter % NANONAUT_ANIMATION_SPEED) === 0) {   
-  nanonautFrameNr = nanonautFrameNr + 1;
-  if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
-    nanonautFrameNr = 0;
+  if (gameFrameCounter % NANONAUT_ANIMATION_SPEED === 0) {
+    nanonautFrameNr = nanonautFrameNr + 1;
+    if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
+      nanonautFrameNr = 0;
+    }
   }
-  }
-  
+
   //Update camera
   cameraX = nanonautX - 150;
 }
@@ -127,18 +127,30 @@ function draw() {
   c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
 
   //Draw background
-  var backgroundX = - (cameraX % BACKGROUND_WIDTH);
+  var backgroundX = -(cameraX % BACKGROUND_WIDTH);
   c.drawImage(backgroundImage, backgroundX, -210);
-  c.drawImage(backgroundImage, backgroundX + BACKGROUND_WIDTH, - 210);
+  c.drawImage(backgroundImage, backgroundX + BACKGROUND_WIDTH, -210);
 
   //Draw earth
   c.fillStyle = "ForestGreen";
   c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
 
   //Draw nanonaut
-  var nanonautSpriteSheetRow = Math.floor(nanonautFrameNr / NANONAUT_NR_FRAMES_PER_ROW);
+  var nanonautSpriteSheetRow = Math.floor(
+    nanonautFrameNr / NANONAUT_NR_FRAMES_PER_ROW
+  );
   var nanonautSpriteSheetColumn = nanonautFrameNr % NANONAUT_NR_FRAMES_PER_ROW;
   var nanonautSpriteSheetX = nanonautSpriteSheetColumn * NANONAUT_WIDTH;
   var nanonautSpriteSheetY = nanonautSpriteSheetRow * NANONAUT_HEIGHT;
-  c.drawImage(nanonautImage, nanonautSpriteSheetX, nanonautSpriteSheetY, NANONAUT_WIDTH, NANONAUT_HEIGHT, nanonautX - cameraX, nanonautY - cameraY, NANONAUT_WIDTH, NANONAUT_HEIGHT);
+  c.drawImage(
+    nanonautImage,
+    nanonautSpriteSheetX,
+    nanonautSpriteSheetY,
+    NANONAUT_WIDTH,
+    NANONAUT_HEIGHT,
+    nanonautX - cameraX,
+    nanonautY - cameraY,
+    NANONAUT_WIDTH,
+    NANONAUT_HEIGHT
+  );
 }
