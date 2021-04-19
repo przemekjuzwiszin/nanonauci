@@ -91,6 +91,8 @@ function onKeyUp(event) {
 
 //UPDATE
 function update() {
+  gameFrameCounter = gameFrameCounter + 1;
+
   nanonautX = nanonautX + NANONAUT_X_SPEED;
   if (spaceKeyIsPressed && !nanonautIsInTheAir) {
     nanonautYspeed = -NANONAUT_JUMP_SPEED;
