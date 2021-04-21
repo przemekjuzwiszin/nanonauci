@@ -51,7 +51,7 @@ var backgroundImage = new Image();
 backgroundImage.src = "assets/img/background.png";
 
 var bush1Image = new Image();
-bush1Image.src = "assets/img/bush1.png"; 
+bush1Image.src = "assets/img/bush1.png";
 
 var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
@@ -112,7 +112,7 @@ function update() {
   }
 
   //Update animation
-  if ((gameFrameCounter % NANONAUT_ANIMATION_SPEED) === 0) {
+  if (gameFrameCounter % NANONAUT_ANIMATION_SPEED === 0) {
     nanonautFrameNr = nanonautFrameNr + 1;
     if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
       nanonautFrameNr = 0;
@@ -156,8 +156,8 @@ function draw() {
     NANONAUT_WIDTH,
     NANONAUT_HEIGHT
   );
-  
+
   //DRAW BUSHES
-c.drawImage(bush1Image, 550, GROUND_Y - 100);
-c.drawImage(bush1Image, 750, GROUND_Y - 90);
+  c.drawImage(bush1Image, 550, GROUND_Y - 100);
+  c.drawImage(bush1Image, 750, GROUND_Y - 90);
 }
