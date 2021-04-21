@@ -156,4 +156,8 @@ function draw() {
     NANONAUT_WIDTH,
     NANONAUT_HEIGHT
   );
+  
+  //DRAW BUSHES
+c.drawImage(bush1Image, 550, GROUND_Y - 100);
+c.drawImage(bush1Image, 750, GROUND_Y - 90);
 }
