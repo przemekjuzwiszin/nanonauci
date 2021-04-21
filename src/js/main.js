@@ -138,12 +138,16 @@ function draw() {
   //Draw earth
   c.fillStyle = "ForestGreen";
   c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
-  
+
   //DRAW BUSHES
   for (var i = 0; i < bushXCoordinates.length; i++) {
-    c.drawImage(bush1Image, bushXCoordinates[i] - cameraX, GROUND_Y - 100 - cameraY);
+    c.drawImage(
+      bush1Image,
+      bushXCoordinates[i] - cameraX,
+      GROUND_Y - 100 - cameraY
+    );
   }
-  
+
   //Draw nanonaut
   var nanonautSpriteSheetRow = Math.floor(
     nanonautFrameNr / NANONAUT_NR_FRAMES_PER_ROW
