@@ -50,6 +50,9 @@ nanonautImage.src = "assets/img/animatedNanonaut.png";
 var backgroundImage = new Image();
 backgroundImage.src = "assets/img/background.png";
 
+var bush1Image = new Image();
+bush1Image.src = "assets/img/bush1.png"; 
+
 var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
