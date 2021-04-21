@@ -62,6 +62,7 @@ var cameraX = 0;
 var cameraY = 0;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
+var bushXCoordinates = [550, 750, 1000, 1200];
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
