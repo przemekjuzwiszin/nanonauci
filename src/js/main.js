@@ -50,6 +50,9 @@ nanonautImage.src = "assets/img/animatedNanonaut.png";
 var backgroundImage = new Image();
 backgroundImage.src = "assets/img/background.png";
 
+var bush1Image = new Image();
+bush1Image.src = "assets/img/bush1.png";
+
 var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
@@ -59,6 +62,7 @@ var cameraX = 0;
 var cameraY = 0;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
+var bushXCoordinates = [550, 750, 1000, 1200];
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
@@ -109,7 +113,7 @@ function update() {
   }
 
   //Update animation
-  if ((gameFrameCounter % NANONAUT_ANIMATION_SPEED) === 0) {
+  if (gameFrameCounter % NANONAUT_ANIMATION_SPEED === 0) {
     nanonautFrameNr = nanonautFrameNr + 1;
     if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
       nanonautFrameNr = 0;
@@ -134,6 +138,15 @@ function draw() {
   //Draw earth
   c.fillStyle = "ForestGreen";
   c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
+
+  //DRAW BUSHES
+  for (var i = 0; i < bushXCoordinates.length; i++) {
+    c.drawImage(
+      bush1Image,
+      bushXCoordinates[i] - cameraX,
+      GROUND_Y - 100 - cameraY
+    );
+  }
 
   //Draw nanonaut
   var nanonautSpriteSheetRow = Math.floor(
