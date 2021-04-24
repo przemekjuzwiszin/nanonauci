@@ -53,6 +53,9 @@ backgroundImage.src = "assets/img/background.png";
 var bush1Image = new Image();
 bush1Image.src = "assets/img/bush1.png";
 
+var bush2Image = new Image();
+bush2Image.src = "assets/img/bush2.png";
+
 var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
