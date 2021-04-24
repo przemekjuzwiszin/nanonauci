@@ -65,15 +65,18 @@ var cameraX = 0;
 var cameraY = 0;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
-var bushData = [{
+var bushData = [
+  {
     x: 550,
     y: 100,
-    image: bush1Image 
-  }, {
+    image: bush1Image,
+  },
+  {
     x: 750,
     y: 90,
-    image: bush2Image
-}];
+    image: bush2Image,
+  },
+];
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
@@ -136,11 +139,10 @@ function update() {
 
   //Update bushes
   for (var i = 0; i < bushData.length; i++) {
-      if ((bushData[i].x - cameraX) < - CANVAS_WIDTH) {
-        bushData[i].x += (2 * CANVAS_WIDTH) + 150;
-      }
+    if (bushData[i].x - cameraX < -CANVAS_WIDTH) {
+      bushData[i].x += 2 * CANVAS_WIDTH + 150;
+    }
   }
-
 }
 
 //DRAWING
