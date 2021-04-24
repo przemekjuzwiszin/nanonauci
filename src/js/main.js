@@ -133,6 +133,14 @@ function update() {
 
   //Update camera
   cameraX = nanonautX - 150;
+
+  //Update bushes
+  for (var i = 0; i < bushData.length; i++) {
+      if ((bushData[i].x - cameraX) < - CANVAS_WIDTH) {
+        bushData[i].x += (2 * CANVAS_WIDTH) + 150;
+      }
+  }
+
 }
 
 //DRAWING
