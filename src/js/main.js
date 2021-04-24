@@ -65,7 +65,7 @@ var cameraX = 0;
 var cameraY = 0;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
-var bushData generateBushes();
+var bushData = generateBushes();
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
@@ -77,7 +77,7 @@ function start() {
 }
 
 //TO DO: Refill the code - at this point it doesn't work.
-function generateBushData() {
+function generateBushes() {
   var generatedBushData = [];
   return generatedBushData;
 }
