@@ -76,6 +76,12 @@ function start() {
   window.requestAnimationFrame(mainLoop);
 }
 
+//Refill the code - at this point it doesn't work.
+function generateBushData() {
+  var generatedBushData = [];
+  return generatedBushData;
+}
+
 //MAIN LOOP
 function mainLoop() {
   update();
