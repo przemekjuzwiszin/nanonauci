@@ -65,18 +65,7 @@ var cameraX = 0;
 var cameraY = 0;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
-var bushData = [
-  {
-    x: 550,
-    y: 100,
-    image: bush1Image,
-  },
-  {
-    x: 750,
-    y: 90,
-    image: bush2Image,
-  },
-];
+var bushData generateBushes();
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
