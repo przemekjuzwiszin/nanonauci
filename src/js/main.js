@@ -151,11 +151,11 @@ function draw() {
   c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
 
   //DRAW BUSHES
-  for (var i = 0; i < bushXCoordinates.length; i++) {
+  for (var i = 0; i < bushData.length; i++) {
     c.drawImage(
-      bush1Image,
-      bushXCoordinates[i] - cameraX,
-      GROUND_Y - 100 - cameraY
+      bushData[i].image,
+      bushData[i].x - cameraX,
+      GROUND_Y - bushData[i].y - cameraY
     );
   }
 
