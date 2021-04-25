@@ -53,6 +53,9 @@ backgroundImage.src = "assets/img/background.png";
 var bush1Image = new Image();
 bush1Image.src = "assets/img/bush1.png";
 
+var bush2Image = new Image();
+bush2Image.src = "assets/img/bush2.png";
+
 var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
@@ -62,7 +65,7 @@ var cameraX = 0;
 var cameraY = 0;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
-var bushXCoordinates = [550, 750, 1000, 1200];
+var bushData = generateBushes();
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
@@ -71,6 +74,12 @@ window.addEventListener("load", start);
 
 function start() {
   window.requestAnimationFrame(mainLoop);
+}
+
+//TO DO: Refill the code - at this point it doesn't work.
+function generateBushes() {
+  var generatedBushData = [];
+  return generatedBushData;
 }
 
 //MAIN LOOP
@@ -122,6 +131,13 @@ function update() {
 
   //Update camera
   cameraX = nanonautX - 150;
+
+  //Update bushes
+  for (var i = 0; i < bushData.length; i++) {
+    if (bushData[i].x - cameraX < -CANVAS_WIDTH) {
+      bushData[i].x += 2 * CANVAS_WIDTH + 150;
+    }
+  }
 }
 
 //DRAWING
@@ -140,11 +156,11 @@ function draw() {
   c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40);
 
   //DRAW BUSHES
-  for (var i = 0; i < bushXCoordinates.length; i++) {
+  for (var i = 0; i < bushData.length; i++) {
     c.drawImage(
-      bush1Image,
-      bushXCoordinates[i] - cameraX,
-      GROUND_Y - 100 - cameraY
+      bushData[i].image,
+      bushData[i].x - cameraX,
+      GROUND_Y - bushData[i].y - cameraY
     );
   }
 
