@@ -80,13 +80,13 @@ function generateBushes() {
   var generatedBushData = [];
   var bushX = 0;
   for (var i = 0; i < 10; i++) {
-  generatedBushData.push({
-    x: bushX,
-    y: 80 + Math.random() * 20,
-    image: bush1Image
-  });
-  bushX += 150 + Math.random() * 200;
-}
+    generatedBushData.push({
+      x: bushX,
+      y: 80 + Math.random() * 20,
+      image: bush1Image,
+    });
+    bushX += 150 + Math.random() * 200;
+  }
   return generatedBushData;
 }
 
