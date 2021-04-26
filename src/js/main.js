@@ -79,6 +79,11 @@ function start() {
 //TO DO: Refill the code - at this point it doesn't work.
 function generateBushes() {
   var generatedBushData = [];
+  generatedBushData.push({
+    x: 550,
+    y: 80 + Math.random() * 20,
+    image: bush1Image
+  });
   return generatedBushData;
 }
 
