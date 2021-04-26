@@ -80,7 +80,7 @@ function start() {
 function generateBushes() {
   var generatedBushData = [];
   generatedBushData.push({
-    x: 550,
+    x: 550 + Math.random() * CANVAS_WIDTH,
     y: 80 + Math.random() * 20,
     image: bush1Image
   });
