@@ -188,11 +188,10 @@ function update() {
 }
 
 function updateRobots() {
-
   //Moving and animating robots
   for (var i = 0; i < robotData.length; i++) {
     robotData[i].x -= ROBOT_X_SPEED;
-    if ((gameFrameCounter % ROBOT_ANIMATION_SPEED) === 0) {
+    if (gameFrameCounter % ROBOT_ANIMATION_SPEED === 0) {
       robotData[i].frameNr = robotData[i].frameNr + 1;
       if (robotData[i].frameNr >= ROBOT_NR_ANIMATION_FRAMES) {
         robotData[i].frameNr = 0;
