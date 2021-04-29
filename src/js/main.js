@@ -39,6 +39,7 @@ var ROBOT_WIDTH = 141;
 var ROBOT_HEIGHT = 139;
 var ROBOT_NR_ANIMATION_FRAMES = 9;
 var ROBOT_ANIMATION_SPEED = 5;
+var ROBOT_X_SPEED = 4;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
