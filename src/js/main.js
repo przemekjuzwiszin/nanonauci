@@ -66,6 +66,12 @@ var cameraY = 0;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
 var bushData = generateBushes();
+var nanonautSpriteSheet = {
+  nrFramesPerRow: 5,
+  spriteWidth: NANONAUT_WIDTH,
+  spriteHeight: NANONAUT_HEIGHT,
+  image: nanonautImage
+}
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
