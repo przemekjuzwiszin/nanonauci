@@ -85,6 +85,13 @@ var robotSpriteSheet = {
   image: robotImage
 }
 
+//Short list of robots to test
+var robotData = [{
+  x: 400,
+  y: GROUND_Y - ROBOT_HEIGHT,
+  frameNr: 0
+}];
+
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
 
