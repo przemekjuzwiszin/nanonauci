@@ -74,23 +74,25 @@ var nanonautSpriteSheet = {
   nrFramesPerRow: 5,
   spriteWidth: NANONAUT_WIDTH,
   spriteHeight: NANONAUT_HEIGHT,
-  image: nanonautImage
-}
+  image: nanonautImage,
+};
 
 //Code to handle the robot sprite sheet (new object)
 var robotSpriteSheet = {
   nrFramesPerRow: 3,
   spriteWidth: ROBOT_WIDTH,
   spriteHeight: ROBOT_HEIGHT,
-  image: robotImage
-}
+  image: robotImage,
+};
 
 //Short list of robots to test
-var robotData = [{
-  x: 400,
-  y: GROUND_Y - ROBOT_HEIGHT,
-  frameNr: 0
-}];
+var robotData = [
+  {
+    x: 400,
+    y: GROUND_Y - ROBOT_HEIGHT,
+    frameNr: 0,
+  },
+];
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
@@ -104,7 +106,7 @@ function start() {
 function generateBushes() {
   var generatedBushData = [];
   var bushX = 0;
-  while (bushX < (2 * CANVAS_WIDTH)) {
+  while (bushX < 2 * CANVAS_WIDTH) {
     var bushImage;
     if (Math.random() >= 0.5) {
       bushImage = bush1Image;
@@ -202,14 +204,24 @@ function draw() {
       GROUND_Y - bushData[i].y - cameraY
     );
   }
-  
+
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
-    drawAnimatedSprite(robotData[i].x - cameraX, robotData[i].y - cameraY, robotData[i].frameNr, robotSpriteSheet);
+    drawAnimatedSprite(
+      robotData[i].x - cameraX,
+      robotData[i].y - cameraY,
+      robotData[i].frameNr,
+      robotSpriteSheet
+    );
   }
 
   //Draw nanonaut
-  drawAnimatedSprite(nanonautX - cameraX, nanonautY - cameraY, nanonautFrameNr, nanonautSpriteSheet);
+  drawAnimatedSprite(
+    nanonautX - cameraX,
+    nanonautY - cameraY,
+    nanonautFrameNr,
+    nanonautSpriteSheet
+  );
 
   //Draw a sprite animation
   function drawAnimatedSprite(screenX, screenY, frameNr, spriteSheet) {
@@ -220,10 +232,14 @@ function draw() {
 
     c.drawImage(
       spriteSheet.image,
-      spriteSheetX, spriteSheetY, 
-      spriteSheet.spriteWidth, spriteSheet.spriteHeight, screenX, screenY,
-      spriteSheet.spriteWidth, spriteSheet.spriteHeight
+      spriteSheetX,
+      spriteSheetY,
+      spriteSheet.spriteWidth,
+      spriteSheet.spriteHeight,
+      screenX,
+      screenY,
+      spriteSheet.spriteWidth,
+      spriteSheet.spriteHeight
     );
-    
   }
 }
