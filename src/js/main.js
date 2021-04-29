@@ -35,6 +35,8 @@ var NANONAUT_X_SPEED = 5;
 var BACKGROUND_WIDTH = 1000;
 var NANONAUT_NR_ANIMATION_FRAMES = 7;
 var NANONAUT_ANIMATION_SPEED = 3;
+var ROBOT_WIDTH = 141;
+var ROBOT_HEIGHT = 139;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
