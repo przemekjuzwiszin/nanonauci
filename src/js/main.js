@@ -77,6 +77,14 @@ var nanonautSpriteSheet = {
   image: nanonautImage
 }
 
+//Code to handle the robot sprite sheet (new object)
+var robotSpriteSheet = {
+  nrFramesPerRow: 3,
+  spriteWidth: ROBOT_WIDTH,
+  spriteHeight: ROBOT_HEIGHT,
+  image: robotImage
+}
+
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
 
