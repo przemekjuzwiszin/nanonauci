@@ -202,4 +202,20 @@ function draw() {
     NANONAUT_WIDTH,
     NANONAUT_HEIGHT
   );
+
+  //Draw a sprite animation
+  function drawAnimatedSprite(screenX, screenY, frameNr, spriteSheet) {
+    var spriteSheetRow = Math.floor(frameNr / spriteSheet.nrFramesPerRow);
+    var spriteSheetColumn = frameNr % spriteSheet.nrFramesPerRow;
+    var spriteSheetX = spriteSheetColumn * spriteSheet.spriteWidth;
+    var spriteSheetY = spriteSheetRow * spriteSheet.spriteHeight;
+
+    c.drawImage(
+      spriteSheet.image,
+      spriteSheetX, spriteSheetY, 
+      spriteSheet.spriteWidth, spriteSheet.spriteHeight, screenX, screenY,
+      spriteSheet.spriteWidth, spriteSheet.spriteHeight
+    );
+    
+  }
 }
