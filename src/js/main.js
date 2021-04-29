@@ -197,23 +197,7 @@ function draw() {
   }
 
   //Draw nanonaut
-  var nanonautSpriteSheetRow = Math.floor(
-    nanonautFrameNr / NANONAUT_NR_FRAMES_PER_ROW
-  );
-  var nanonautSpriteSheetColumn = nanonautFrameNr % NANONAUT_NR_FRAMES_PER_ROW;
-  var nanonautSpriteSheetX = nanonautSpriteSheetColumn * NANONAUT_WIDTH;
-  var nanonautSpriteSheetY = nanonautSpriteSheetRow * NANONAUT_HEIGHT;
-  c.drawImage(
-    nanonautImage,
-    nanonautSpriteSheetX,
-    nanonautSpriteSheetY,
-    NANONAUT_WIDTH,
-    NANONAUT_HEIGHT,
-    nanonautX - cameraX,
-    nanonautY - cameraY,
-    NANONAUT_WIDTH,
-    NANONAUT_HEIGHT
-  );
+  drawAnimatedSprite(nanonautX - cameraX, nanonautY - cameraY, nanonautFrameNr, nanonautSpriteSheet);
 
   //Draw a sprite animation
   function drawAnimatedSprite(screenX, screenY, frameNr, spriteSheet) {
