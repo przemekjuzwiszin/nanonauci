@@ -202,6 +202,11 @@ function draw() {
       GROUND_Y - bushData[i].y - cameraY
     );
   }
+  
+  //Draw robots
+  for (var i = 0; i < robotData.length; i++) {
+    drawAnimatedSprite(robotData[i].x - cameraX, robotData[i].y - cameraY, robotData[i].frameNr, robotSpriteSheet);
+  }
 
   //Draw nanonaut
   drawAnimatedSprite(nanonautX - cameraX, nanonautY - cameraY, nanonautFrameNr, nanonautSpriteSheet);
