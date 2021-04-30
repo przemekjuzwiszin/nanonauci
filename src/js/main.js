@@ -33,9 +33,10 @@ var SPACE_KEYCODE = 32;
 var NANONAUT_JUMP_SPEED = 20;
 var NANONAUT_X_SPEED = 5;
 var BACKGROUND_WIDTH = 1000;
-var NANONAUT_NR_FRAMES_PER_ROW = 5;
 var NANONAUT_NR_ANIMATION_FRAMES = 7;
 var NANONAUT_ANIMATION_SPEED = 3;
+var ROBOT_WIDTH = 141;
+var ROBOT_HEIGHT = 139;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
@@ -56,6 +57,9 @@ bush1Image.src = "assets/img/bush1.png";
 var bush2Image = new Image();
 bush2Image.src = "assets/img/bush2.png";
 
+var robotImage = new Image();
+robotImage.src = "assets/img/animatedRobot.png";
+
 var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
@@ -66,6 +70,29 @@ var cameraY = 0;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
 var bushData = generateBushes();
+var nanonautSpriteSheet = {
+  nrFramesPerRow: 5,
+  spriteWidth: NANONAUT_WIDTH,
+  spriteHeight: NANONAUT_HEIGHT,
+  image: nanonautImage,
+};
+
+//Code to handle the robot sprite sheet (new object)
+var robotSpriteSheet = {
+  nrFramesPerRow: 3,
+  spriteWidth: ROBOT_WIDTH,
+  spriteHeight: ROBOT_HEIGHT,
+  image: robotImage,
+};
+
+//Short list of robots to test
+var robotData = [
+  {
+    x: 400,
+    y: GROUND_Y - ROBOT_HEIGHT,
+    frameNr: 0,
+  },
+];
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
@@ -79,7 +106,7 @@ function start() {
 function generateBushes() {
   var generatedBushData = [];
   var bushX = 0;
-  while (bushX < (2 * CANVAS_WIDTH)) {
+  while (bushX < 2 * CANVAS_WIDTH) {
     var bushImage;
     if (Math.random() >= 0.5) {
       bushImage = bush1Image;
@@ -178,22 +205,41 @@ function draw() {
     );
   }
 
+  //Draw robots
+  for (var i = 0; i < robotData.length; i++) {
+    drawAnimatedSprite(
+      robotData[i].x - cameraX,
+      robotData[i].y - cameraY,
+      robotData[i].frameNr,
+      robotSpriteSheet
+    );
+  }
+
   //Draw nanonaut
-  var nanonautSpriteSheetRow = Math.floor(
-    nanonautFrameNr / NANONAUT_NR_FRAMES_PER_ROW
-  );
-  var nanonautSpriteSheetColumn = nanonautFrameNr % NANONAUT_NR_FRAMES_PER_ROW;
-  var nanonautSpriteSheetX = nanonautSpriteSheetColumn * NANONAUT_WIDTH;
-  var nanonautSpriteSheetY = nanonautSpriteSheetRow * NANONAUT_HEIGHT;
-  c.drawImage(
-    nanonautImage,
-    nanonautSpriteSheetX,
-    nanonautSpriteSheetY,
-    NANONAUT_WIDTH,
-    NANONAUT_HEIGHT,
+  drawAnimatedSprite(
     nanonautX - cameraX,
     nanonautY - cameraY,
-    NANONAUT_WIDTH,
-    NANONAUT_HEIGHT
+    nanonautFrameNr,
+    nanonautSpriteSheet
   );
+
+  //Draw a sprite animation
+  function drawAnimatedSprite(screenX, screenY, frameNr, spriteSheet) {
+    var spriteSheetRow = Math.floor(frameNr / spriteSheet.nrFramesPerRow);
+    var spriteSheetColumn = frameNr % spriteSheet.nrFramesPerRow;
+    var spriteSheetX = spriteSheetColumn * spriteSheet.spriteWidth;
+    var spriteSheetY = spriteSheetRow * spriteSheet.spriteHeight;
+
+    c.drawImage(
+      spriteSheet.image,
+      spriteSheetX,
+      spriteSheetY,
+      spriteSheet.spriteWidth,
+      spriteSheet.spriteHeight,
+      screenX,
+      screenY,
+      spriteSheet.spriteWidth,
+      spriteSheet.spriteHeight
+    );
+  }
 }
