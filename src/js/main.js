@@ -37,6 +37,9 @@ var NANONAUT_NR_ANIMATION_FRAMES = 7;
 var NANONAUT_ANIMATION_SPEED = 3;
 var ROBOT_WIDTH = 141;
 var ROBOT_HEIGHT = 139;
+var ROBOT_NR_ANIMATION_FRAMES = 9;
+var ROBOT_ANIMATION_SPEED = 5;
+var ROBOT_X_SPEED = 4;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
@@ -177,6 +180,22 @@ function update() {
   for (var i = 0; i < bushData.length; i++) {
     if (bushData[i].x - cameraX < -CANVAS_WIDTH) {
       bushData[i].x += 2 * CANVAS_WIDTH + 150;
+    }
+  }
+
+  //Update robots
+  updateRobots();
+}
+
+function updateRobots() {
+  //Moving and animating robots
+  for (var i = 0; i < robotData.length; i++) {
+    robotData[i].x -= ROBOT_X_SPEED;
+    if (gameFrameCounter % ROBOT_ANIMATION_SPEED === 0) {
+      robotData[i].frameNr = robotData[i].frameNr + 1;
+      if (robotData[i].frameNr >= ROBOT_NR_ANIMATION_FRAMES) {
+        robotData[i].frameNr = 0;
+      }
     }
   }
 }
