@@ -76,9 +76,23 @@ function start() {
   window.requestAnimationFrame(mainLoop);
 }
 
-//TO DO: Refill the code - at this point it doesn't work.
 function generateBushes() {
   var generatedBushData = [];
+  var bushX = 0;
+  while (bushX < (2 * CANVAS_WIDTH)) {
+    var bushImage;
+    if (Math.random() >= 0.5) {
+      bushImage = bush1Image;
+    } else {
+      bushImage = bush2Image;
+    }
+    generatedBushData.push({
+      x: bushX,
+      y: 80 + Math.random() * 20,
+      image: bushImage,
+    });
+    bushX += 150 + Math.random() * 200;
+  }
   return generatedBushData;
 }
 
