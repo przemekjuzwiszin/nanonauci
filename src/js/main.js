@@ -198,6 +198,16 @@ function updateRobots() {
       }
     }
   }
+
+  //Remove robots that have gone off-screen
+  var robotIndex = 0;
+  while (robotIndex < robotData.length) {
+    if (robotData[robotIndex].x < cameraX - ROBOT_WIDTH) {
+      robotData.splice(robotIndex, 1);
+    } else {
+      robotIndex += 1;
+    }
+  }
 }
 
 //DRAWING
