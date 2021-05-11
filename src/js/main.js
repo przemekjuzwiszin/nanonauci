@@ -211,6 +211,16 @@ function updateRobots() {
       robotIndex += 1;
     }
   }
+
+  if (robotData.length < MAX_ACTIVE_ROBOTS) {
+    var lastRobotX = robotData[robotData.length - 1].x;
+    var newRobotX = lastRobotX + MIN_DISTANCE_BETWEEN_ROBOTS + Math.random() * (MAX_DISTANCE_BETWEEN_ROBOTS - MIN_DISTANCE_BETWEEN_ROBOTS);
+    robotData.push({
+    x: newRobotX,
+    y: GROUND_Y - ROBOT_HEIGHT,
+    frameNr: 0
+    });
+  }
 }
 
 //DRAWING
