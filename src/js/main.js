@@ -207,7 +207,7 @@ function updateRobots() {
   }
 
   if (robotData.length < MAX_ACTIVE_ROBOTS) {
-    var lastRobotX = 0;
+    var lastRobotX = CANVAS_WIDTH;
     if (robotData.length > 0) {
       lastRobotX = robotData[robotData.length - 1].x;
     }
