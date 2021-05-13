@@ -227,6 +227,12 @@ function doesNanonautOverlapRobotAlongOneAxis(nanonautNearX, nanonautFarX, robot
   return nanonautOverlapsNearRobotEdge || nanonautOverlapsFarRobotEdge || nanonautOverlapsEntireRobot;
 }
 
+function doesNanonautOverlapRobot(nanonautX, nanonautY, NANONAUT_WIDTH, NANONAUT_HEIGHT, robotX, robotY, ROBOT_WIDTH, ROBOT_HEIGHT) {
+  var nanonautOverlapsRobotOnXAxis = doesNanonautOverlapRobotAlongOneAxis(nanonautX, nanonautX + NANONAUT_WIDTH, robotX, robotX + ROBOT_WIDTH);
+  var nanonautOverlapRobotOnYAxis = doesNanonautOverlapRobotAlongOneAxis(nanonautY, nanonautY + NANONAUT_HEIGHT, robotY, robotY + ROBOT_HEIGHT);
+  return nanonautOverlapsRobotOnXAxis && nanonautOverlapRobotOnYAxis;
+}
+
 //DRAWING
 function draw() {
   //Draw sky
