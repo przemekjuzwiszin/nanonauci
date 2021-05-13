@@ -91,6 +91,20 @@ var robotSpriteSheet = {
   image: robotImage,
 };
 
+var nanonautCollisionRectangle = {
+  xOffset: 60,
+  yOffset: 20,
+  width: 50,
+  height: 200
+};
+
+var robotCollisionRectangle = {
+  xOffset: 50,
+  yOffset: 20,
+  width:50,
+  height: 100
+};
+
 //Short list of robots to test
 var robotData = [];
 
