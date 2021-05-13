@@ -201,6 +201,9 @@ function update() {
 function updateRobots() {
   //Moving and animating robots
   for (var i = 0; i < robotData.length; i++) {
+    if (doesNanonautOverlapRobot(nanonautX + nanonautCollisionRectangle.xOffset, nanonautY + nanonautCollisionRectangle.yOffset, nanonautCollisionRectangle.width, nanonautCollisionRectangle.height, robotData[i].x + robotCollisionRectangle.xOffset, robotData[i].y + robotCollisionRectangle.yOffset, robotCollisionRectangle.width, robotCollisionRectangle.height)) {
+      console.log('AŁA!');
+    }
     robotData[i].x -= ROBOT_X_SPEED;
     if (gameFrameCounter % ROBOT_ANIMATION_SPEED === 0) {
       robotData[i].frameNr = robotData[i].frameNr + 1;
