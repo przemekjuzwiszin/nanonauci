@@ -312,7 +312,7 @@ function draw() {
   c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
 
   //Draw background
-  var backgroundX = -(cameraX % BACKGROUND_WIDTH);
+  var backgroundX = -(shakenCameraX % BACKGROUND_WIDTH);
   c.drawImage(backgroundImage, backgroundX, -210);
   c.drawImage(backgroundImage, backgroundX + BACKGROUND_WIDTH, -210);
 
@@ -324,16 +324,16 @@ function draw() {
   for (var i = 0; i < bushData.length; i++) {
     c.drawImage(
       bushData[i].image,
-      bushData[i].x - cameraX,
-      GROUND_Y - bushData[i].y - cameraY
+      bushData[i].x - shakenCameraX,
+      GROUND_Y - bushData[i].y - shakenCameraY
     );
   }
 
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
     drawAnimatedSprite(
-      robotData[i].x - cameraX,
-      robotData[i].y - cameraY,
+      robotData[i].x - shakenCameraX,
+      robotData[i].y - shakenCameraY,
       robotData[i].frameNr,
       robotSpriteSheet
     );
@@ -341,8 +341,8 @@ function draw() {
 
   //Draw nanonaut
   drawAnimatedSprite(
-    nanonautX - cameraX,
-    nanonautY - cameraY,
+    nanonautX - shakenCameraX,
+    nanonautY - shakenCameraY,
     nanonautFrameNr,
     nanonautSpriteSheet
   );
