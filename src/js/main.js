@@ -73,6 +73,7 @@ var nanonautIsInTheAir = false;
 var spaceKeyIsPressed = false;
 var cameraX = 0;
 var cameraY = 0;
+var screenshake = false;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
 var bushData = generateBushes();
