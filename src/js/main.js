@@ -197,11 +197,16 @@ function update() {
   }
 
   //Update robots
-  updateRobots();
+  screenshake = false;
+  var nanonautTouchedARobot = updateRobots();
+  if (nanonautTouchedARobot) {
+    screenshake = true;
+  }
 }
 
 function updateRobots() {
-  //Moving and animating robots
+  //Moving and animating robots and detects a collision with a nanonaut
+  var nanonautTouchedARobot = false;
   for (var i = 0; i < robotData.length; i++) {
     if (
       doesNanonautOverlapRobot(
@@ -215,7 +220,7 @@ function updateRobots() {
         robotCollisionRectangle.height
       )
     ) {
-      console.log("AŁA!");
+      nanonautTouchedARobot = true;
     }
     robotData[i].x -= ROBOT_X_SPEED;
     if (gameFrameCounter % ROBOT_ANIMATION_SPEED === 0) {
@@ -252,6 +257,7 @@ function updateRobots() {
       frameNr: 0,
     });
   }
+  return nanonautTouchedARobot;
 }
 
 function doesNanonautOverlapRobotAlongOneAxis(
