@@ -298,6 +298,14 @@ function doesNanonautOverlapRobot(
 
 //DRAWING
 function draw() {
+
+  //if necessary, shake the screen
+  var shakenCameraX = cameraX;
+  var shakenCameraY = cameraY;
+  if (screenshake) {
+    //To Do: change variables value for camera X and camera Y to shake the screen
+  }; 
+
   //Draw sky
   c.fillStyle = "LightSkyBlue";
   c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
