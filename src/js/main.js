@@ -305,7 +305,8 @@ function draw() {
   var shakenCameraX = cameraX;
   var shakenCameraY = cameraY;
   if (screenshake) {
-    //To Do: change variables value for camera X and camera Y to shake the screen
+    shakenCameraX += (Math.random() - .5) * SCREENSHAKE_RADIUS;
+    shakenCameraY += (Math.random() - .5) * SCREENSHAKE_RADIUS;
   }; 
 
   //Draw sky
