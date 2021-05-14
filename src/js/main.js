@@ -43,6 +43,7 @@ var ROBOT_X_SPEED = 4;
 var MIN_DISTANCE_BETWEEN_ROBOTS = 400;
 var MAX_DISTANCE_BETWEEN_ROBOTS = 1200;
 var MAX_ACTIVE_ROBOTS = 3;
+var SCREENSHAKE_RADIUS = 16;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
