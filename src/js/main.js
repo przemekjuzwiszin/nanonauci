@@ -73,6 +73,7 @@ var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
 var nanonautIsInTheAir = false;
 var spaceKeyIsPressed = false;
+var nanonautHealth = NANONAUT_MAX_HEALTH;
 var cameraX = 0;
 var cameraY = 0;
 var screenshake = false;
