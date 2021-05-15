@@ -45,6 +45,8 @@ var MAX_DISTANCE_BETWEEN_ROBOTS = 1200;
 var MAX_ACTIVE_ROBOTS = 3;
 var SCREENSHAKE_RADIUS = 16;
 var NANONAUT_MAX_HEALTH = 100;
+var PLAY_GAME_MODE = 0;
+var GAME_OVER_GAME_MODE = 1;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
