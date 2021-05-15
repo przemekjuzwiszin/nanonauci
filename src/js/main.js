@@ -203,6 +203,7 @@ function update() {
   var nanonautTouchedARobot = updateRobots();
   if (nanonautTouchedARobot) {
     screenshake = true;
+    if (nanonautHealth > 0) nanonautHealth -= 1;
   }
 }
 
