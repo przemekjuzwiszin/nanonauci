@@ -359,7 +359,9 @@ function draw() {
   
   //Draw nanonaut health
   c.fillStyle = "red";
-  c.fillRect(400, 10, nanonautHealth / NANONAUT_MAX_HEALTH * 380, 20); 
+  c.fillRect(400, 10, nanonautHealth / NANONAUT_MAX_HEALTH * 380, 20);
+  c.strokeStyle = "red";
+  c.strokeRect(400, 10, 380, 20); 
 
   //Draw a sprite animation
   function drawAnimatedSprite(screenX, screenY, frameNr, spriteSheet) {
