@@ -70,6 +70,7 @@ bush2Image.src = "assets/img/bush2.png";
 var robotImage = new Image();
 robotImage.src = "assets/img/animatedRobot.png";
 
+var gameMode = PLAY_GAME_MODE;
 var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
