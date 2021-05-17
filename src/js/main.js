@@ -166,6 +166,9 @@ function onKeyUp(event) {
 
 //UPDATE
 function update() {
+
+  if (gameMode != PLAY_GAME_MODE) return;
+
   gameFrameCounter = gameFrameCounter + 1;
 
   nanonautX = nanonautX + NANONAUT_X_SPEED;
@@ -208,6 +211,10 @@ function update() {
     screenshake = true;
     if (nanonautHealth > 0) nanonautHealth -= 1;
   }
+   //check if the game end
+   if (nanonautHealth <= 0) {
+     gameMode = GAME_OVER_GAME_MODE;
+   }
 }
 
 function updateRobots() {
