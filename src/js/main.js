@@ -369,9 +369,9 @@ function draw() {
 
   //display the distance traveled by the nanonaut
   var nanonautDistance = nanonautX / 100;
-  c.fillStyle = 'black';
-  c.font = '48px sans-serif';
-  c.fillText(nanonautDistance.toFixed(0) + 'm', 20, 40);
+  c.fillStyle = "black";
+  c.font = "48px sans-serif";
+  c.fillText(nanonautDistance.toFixed(0) + "m", 20, 40);
 
   //Draw nanonaut health
   c.fillStyle = "red";
@@ -381,7 +381,7 @@ function draw() {
 
   //If the game is over, display the end of the game
   if (gameMode == GAME_OVER_GAME_MODE) {
-    c.font = '69px sans-serif';    
+    c.font = "69px sans-serif";
     c.fillStyle = "black";
     c.fillText("GAME OVER", 120, 300);
   }
