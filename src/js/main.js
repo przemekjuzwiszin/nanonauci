@@ -166,7 +166,6 @@ function onKeyUp(event) {
 
 //UPDATE
 function update() {
-
   if (gameMode != PLAY_GAME_MODE) return;
 
   gameFrameCounter = gameFrameCounter + 1;
@@ -211,11 +210,11 @@ function update() {
     screenshake = true;
     if (nanonautHealth > 0) nanonautHealth -= 1;
   }
-   //check if the game end
-   if (nanonautHealth <= 0) {
-     gameMode = GAME_OVER_GAME_MODE;
-     screenshake = false;
-   }
+  //check if the game end
+  if (nanonautHealth <= 0) {
+    gameMode = GAME_OVER_GAME_MODE;
+    screenshake = false;
+  }
 }
 
 function updateRobots() {
@@ -374,6 +373,13 @@ function draw() {
   c.strokeStyle = "red";
   c.strokeRect(400, 10, 380, 20);
 
+  //If the game is over, display the end of the game
+  if (gameMode == GAME_OVER_GAME_MODE) {
+    GAME_OVER_GAME_MODE;
+    c.font = '69px sans-serif';    
+    c.fillStyle = "black";
+    c.fillText("GAME OVER", 120, 300);
+  }
   //Draw a sprite animation
   function drawAnimatedSprite(screenX, screenY, frameNr, spriteSheet) {
     var spriteSheetRow = Math.floor(frameNr / spriteSheet.nrFramesPerRow);
