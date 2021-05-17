@@ -367,6 +367,12 @@ function draw() {
     nanonautSpriteSheet
   );
 
+  //display the distance traveled by the nanonaut
+  var nanonautDistance = nanonautX / 100;
+  c.fillStyle = 'black';
+  c.font = '48px sans-serif';
+  c.fillText(nanonautDistance.toFixed(0) + 'm', 20, 40);
+
   //Draw nanonaut health
   c.fillStyle = "red";
   c.fillRect(400, 10, (nanonautHealth / NANONAUT_MAX_HEALTH) * 380, 20);
