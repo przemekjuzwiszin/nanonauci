@@ -375,7 +375,6 @@ function draw() {
 
   //If the game is over, display the end of the game
   if (gameMode == GAME_OVER_GAME_MODE) {
-    GAME_OVER_GAME_MODE;
     c.font = '69px sans-serif';    
     c.fillStyle = "black";
     c.fillText("GAME OVER", 120, 300);
