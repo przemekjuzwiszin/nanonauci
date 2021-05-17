@@ -214,6 +214,7 @@ function update() {
    //check if the game end
    if (nanonautHealth <= 0) {
      gameMode = GAME_OVER_GAME_MODE;
+     screenshake = false;
    }
 }
 
