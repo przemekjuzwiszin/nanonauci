@@ -67,6 +67,9 @@ bush1Image.src = "assets/img/bush1.png";
 var bush2Image = new Image();
 bush2Image.src = "assets/img/bush2.png";
 
+var nanocoin = new Image();
+nanocoin.src = "assets/img/nanocoin.png"
+
 var robotImage = new Image();
 robotImage.src = "assets/img/animatedRobot.png";
 
@@ -348,6 +351,9 @@ function draw() {
       GROUND_Y - bushData[i].y - shakenCameraY
     );
   }
+  
+  //Draw nanocoins
+  c.drawImage(nanocoin, 0, 0);
 
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
