@@ -353,7 +353,7 @@ function draw() {
   }
   
   //Draw nanocoins
-  c.drawImage(nanocoin, 0, 0);
+  c.drawImage(nanocoin, 0, 0, 80, 60);
 
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
