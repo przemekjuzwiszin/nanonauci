@@ -353,9 +353,9 @@ function draw() {
       GROUND_Y - bushData[i].y - shakenCameraY
     );
   }
-  
-  //Draw nanocoins
-  c.drawImage(nanocoin, 0, 0, 80, 60);
+
+    //Draw nanocoins
+    c.drawImage(nanocoin, 600, 460, COIN_WIDTH, COIN_HEIGHT);
 
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
