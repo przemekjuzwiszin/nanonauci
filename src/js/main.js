@@ -47,6 +47,8 @@ var SCREENSHAKE_RADIUS = 16;
 var NANONAUT_MAX_HEALTH = 100;
 var PLAY_GAME_MODE = 0;
 var GAME_OVER_GAME_MODE = 1;
+var COIN_WIDTH = 80;
+var COIN_HEIGHT = 60;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
