@@ -360,8 +360,11 @@ function draw() {
   }
 
     //Draw nanocoins
-    c.drawImage(nanocoin, coinX, GROUND_Y - coinY, COIN_WIDTH, COIN_HEIGHT);
-    c.drawImage(nanocoin, coinX + 80, GROUND_Y - coinY, COIN_WIDTH, COIN_HEIGHT);
+    for (var i = 0; i < nanocoinXcordinates.length; i++ ) {
+       //Update camera for nanocoin
+      var cameraXforCoin = nanonautX - CANVAS_WIDTH; 
+      c.drawImage(nanocoin, nanocoinXcordinates[i] - cameraXforCoin, GROUND_Y - coinY, COIN_WIDTH, COIN_HEIGHT);
+    }
 
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
