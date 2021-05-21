@@ -123,7 +123,15 @@ var robotCollisionRectangle = {
 var robotData = [];
 
 //array to x cordinates nanocoin
-var nanocoinXcordinates = [coinX, 700, 1000, 1200];
+var coinData = [{
+    x: coinX,
+    y: coinY,
+    image: nanocoinImage
+}, {
+  x: coinX + 1200,
+  y: coinY,
+  image: nanocoinImage
+}];
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
