@@ -72,7 +72,7 @@ var bush2Image = new Image();
 bush2Image.src = "assets/img/bush2.png";
 
 var nanocoinImage = new Image();
-nanocoinImage.src = "assets/img/nanocoin.png"
+nanocoinImage.src = "assets/img/nanocoin.png";
 
 var robotImage = new Image();
 robotImage.src = "assets/img/animatedRobot.png";
@@ -123,15 +123,18 @@ var robotCollisionRectangle = {
 var robotData = [];
 
 //array to x cordinates nanocoin
-var coinData = [{
+var coinData = [
+  {
     x: coinX,
     y: coinY,
-    image: nanocoinImage
-}, {
-  x: coinX + 1200,
-  y: coinY,
-  image: nanocoinImage
-}];
+    image: nanocoinImage,
+  },
+  {
+    x: coinX + 1200,
+    y: coinY,
+    image: nanocoinImage,
+  },
+];
 
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
@@ -367,12 +370,18 @@ function draw() {
     );
   }
 
-    //Draw nanocoins
-    for (var i = 0; i < coinData.length; i++ ) {
-       //Update camera for nanocoin
-      var cameraXforCoin = nanonautX - CANVAS_WIDTH; 
-      c.drawImage(coinData[i].image, coinData[i].x - cameraXforCoin, GROUND_Y - coinData[i].y -cameraY,  COIN_WIDTH, COIN_HEIGHT);
-    }
+  //Draw nanocoins
+  for (var i = 0; i < coinData.length; i++) {
+    //Update camera for nanocoin
+    var cameraXforCoin = nanonautX - CANVAS_WIDTH;
+    c.drawImage(
+      coinData[i].image,
+      coinData[i].x - cameraXforCoin,
+      GROUND_Y - coinData[i].y - cameraY,
+      COIN_WIDTH,
+      COIN_HEIGHT
+    );
+  }
 
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
