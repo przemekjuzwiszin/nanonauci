@@ -71,8 +71,8 @@ bush1Image.src = "assets/img/bush1.png";
 var bush2Image = new Image();
 bush2Image.src = "assets/img/bush2.png";
 
-var nanocoin = new Image();
-nanocoin.src = "assets/img/nanocoin.png"
+var nanocoinImage = new Image();
+nanocoinImage.src = "assets/img/nanocoin.png"
 
 var robotImage = new Image();
 robotImage.src = "assets/img/animatedRobot.png";
