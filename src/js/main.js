@@ -44,6 +44,7 @@ var MIN_DISTANCE_BETWEEN_ROBOTS = 400;
 var MAX_DISTANCE_BETWEEN_ROBOTS = 1200;
 var MAX_ACTIVE_ROBOTS = 3;
 var SCREENSHAKE_RADIUS = 16;
+var NANONAUT_MAX_HEALTH = 100;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
@@ -72,6 +73,7 @@ var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
 var nanonautIsInTheAir = false;
 var spaceKeyIsPressed = false;
+var nanonautHealth = NANONAUT_MAX_HEALTH;
 var cameraX = 0;
 var cameraY = 0;
 var screenshake = false;
@@ -201,6 +203,7 @@ function update() {
   var nanonautTouchedARobot = updateRobots();
   if (nanonautTouchedARobot) {
     screenshake = true;
+    if (nanonautHealth > 0) nanonautHealth -= 1;
   }
 }
 
@@ -353,6 +356,12 @@ function draw() {
     nanonautFrameNr,
     nanonautSpriteSheet
   );
+
+  //Draw nanonaut health
+  c.fillStyle = "red";
+  c.fillRect(400, 10, (nanonautHealth / NANONAUT_MAX_HEALTH) * 380, 20);
+  c.strokeStyle = "red";
+  c.strokeRect(400, 10, 380, 20);
 
   //Draw a sprite animation
   function drawAnimatedSprite(screenX, screenY, frameNr, spriteSheet) {
