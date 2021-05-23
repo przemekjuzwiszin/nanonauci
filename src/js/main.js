@@ -45,6 +45,8 @@ var MAX_DISTANCE_BETWEEN_ROBOTS = 1200;
 var MAX_ACTIVE_ROBOTS = 3;
 var SCREENSHAKE_RADIUS = 16;
 var NANONAUT_MAX_HEALTH = 100;
+var PLAY_GAME_MODE = 0;
+var GAME_OVER_GAME_MODE = 1;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
@@ -68,6 +70,7 @@ bush2Image.src = "assets/img/bush2.png";
 var robotImage = new Image();
 robotImage.src = "assets/img/animatedRobot.png";
 
+var gameMode = PLAY_GAME_MODE;
 var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
 var nanonautYspeed = 0;
@@ -163,6 +166,8 @@ function onKeyUp(event) {
 
 //UPDATE
 function update() {
+  if (gameMode != PLAY_GAME_MODE) return;
+
   gameFrameCounter = gameFrameCounter + 1;
 
   nanonautX = nanonautX + NANONAUT_X_SPEED;
@@ -204,6 +209,11 @@ function update() {
   if (nanonautTouchedARobot) {
     screenshake = true;
     if (nanonautHealth > 0) nanonautHealth -= 1;
+  }
+  //check if the game end
+  if (nanonautHealth <= 0) {
+    gameMode = GAME_OVER_GAME_MODE;
+    screenshake = false;
   }
 }
 
@@ -363,6 +373,12 @@ function draw() {
   c.strokeStyle = "red";
   c.strokeRect(400, 10, 380, 20);
 
+  //If the game is over, display the end of the game
+  if (gameMode == GAME_OVER_GAME_MODE) {
+    c.font = '69px sans-serif';    
+    c.fillStyle = "black";
+    c.fillText("GAME OVER", 120, 300);
+  }
   //Draw a sprite animation
   function drawAnimatedSprite(screenX, screenY, frameNr, spriteSheet) {
     var spriteSheetRow = Math.floor(frameNr / spriteSheet.nrFramesPerRow);
