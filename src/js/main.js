@@ -43,6 +43,7 @@ var ROBOT_X_SPEED = 4;
 var MIN_DISTANCE_BETWEEN_ROBOTS = 400;
 var MAX_DISTANCE_BETWEEN_ROBOTS = 1200;
 var MAX_ACTIVE_ROBOTS = 3;
+var SCREENSHAKE_RADIUS = 16;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
@@ -73,6 +74,7 @@ var nanonautIsInTheAir = false;
 var spaceKeyIsPressed = false;
 var cameraX = 0;
 var cameraY = 0;
+var screenshake = false;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
 var bushData = generateBushes();
@@ -195,11 +197,16 @@ function update() {
   }
 
   //Update robots
-  updateRobots();
+  screenshake = false;
+  var nanonautTouchedARobot = updateRobots();
+  if (nanonautTouchedARobot) {
+    screenshake = true;
+  }
 }
 
 function updateRobots() {
-  //Moving and animating robots
+  //Moving and animating robots and detects a collision with a nanonaut
+  var nanonautTouchedARobot = false;
   for (var i = 0; i < robotData.length; i++) {
     if (
       doesNanonautOverlapRobot(
@@ -213,7 +220,7 @@ function updateRobots() {
         robotCollisionRectangle.height
       )
     ) {
-      console.log("AŁA!");
+      nanonautTouchedARobot = true;
     }
     robotData[i].x -= ROBOT_X_SPEED;
     if (gameFrameCounter % ROBOT_ANIMATION_SPEED === 0) {
@@ -250,6 +257,7 @@ function updateRobots() {
       frameNr: 0,
     });
   }
+  return nanonautTouchedARobot;
 }
 
 function doesNanonautOverlapRobotAlongOneAxis(
@@ -298,12 +306,20 @@ function doesNanonautOverlapRobot(
 
 //DRAWING
 function draw() {
+  //if necessary, shake the screen
+  var shakenCameraX = cameraX;
+  var shakenCameraY = cameraY;
+  if (screenshake) {
+    shakenCameraX += (Math.random() - 0.5) * SCREENSHAKE_RADIUS;
+    shakenCameraY += (Math.random() - 0.5) * SCREENSHAKE_RADIUS;
+  }
+
   //Draw sky
   c.fillStyle = "LightSkyBlue";
   c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40);
 
   //Draw background
-  var backgroundX = -(cameraX % BACKGROUND_WIDTH);
+  var backgroundX = -(shakenCameraX % BACKGROUND_WIDTH);
   c.drawImage(backgroundImage, backgroundX, -210);
   c.drawImage(backgroundImage, backgroundX + BACKGROUND_WIDTH, -210);
 
@@ -315,16 +331,16 @@ function draw() {
   for (var i = 0; i < bushData.length; i++) {
     c.drawImage(
       bushData[i].image,
-      bushData[i].x - cameraX,
-      GROUND_Y - bushData[i].y - cameraY
+      bushData[i].x - shakenCameraX,
+      GROUND_Y - bushData[i].y - shakenCameraY
     );
   }
 
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
     drawAnimatedSprite(
-      robotData[i].x - cameraX,
-      robotData[i].y - cameraY,
+      robotData[i].x - shakenCameraX,
+      robotData[i].y - shakenCameraY,
       robotData[i].frameNr,
       robotSpriteSheet
     );
@@ -332,8 +348,8 @@ function draw() {
 
   //Draw nanonaut
   drawAnimatedSprite(
-    nanonautX - cameraX,
-    nanonautY - cameraY,
+    nanonautX - shakenCameraX,
+    nanonautY - shakenCameraY,
     nanonautFrameNr,
     nanonautSpriteSheet
   );
