@@ -49,7 +49,7 @@ var PLAY_GAME_MODE = 0;
 var GAME_OVER_GAME_MODE = 1;
 var COIN_WIDTH = 80;
 var COIN_HEIGHT = 60;
-var coinX = 550;
+var coinX = 800;
 var coinY = 80;
 
 //PRECONFIGURATION
@@ -130,7 +130,7 @@ var coinData = [
     image: nanocoinImage,
   },
   {
-    x: coinX + 1200,
+    x: coinX + 1600,
     y: coinY,
     image: nanocoinImage,
   },
@@ -235,6 +235,12 @@ function update() {
   if (nanonautHealth <= 0) {
     gameMode = GAME_OVER_GAME_MODE;
     screenshake = false;
+  }
+
+  for (var i = 0; i < coinData.length; i++) {
+    if (coinData[i].x - cameraX < -CANVAS_WIDTH) {
+      coinData[i].x += 2 * CANVAS_WIDTH + 2400;
+    }
   }
 }
 
