@@ -90,6 +90,10 @@ var screenshake = false;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
 var bushData = generateBushes();
+
+//array to x cordinates nanocoin
+var coinData = generateCoins();
+
 var nanonautSpriteSheet = {
   nrFramesPerRow: 5,
   spriteWidth: NANONAUT_WIDTH,
@@ -122,20 +126,6 @@ var robotCollisionRectangle = {
 //Short list of robots to test
 var robotData = [];
 
-//array to x cordinates nanocoin
-var coinData = [
-  {
-    x: coinX,
-    y: coinY,
-    image: nanocoinImage,
-  },
-  {
-    x: coinX + 1600,
-    y: coinY,
-    image: nanocoinImage,
-  },
-];
-
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
 
@@ -163,6 +153,17 @@ function generateBushes() {
     bushX += 150 + Math.random() * 200;
   }
   return generatedBushData;
+}
+
+//
+function generateCoins() {
+  var generatedCoinData = [];
+  generatedCoinData.push({
+    x: coinX + Math.random() * CANVAS_WIDTH,
+    y: coinY,
+    image: nanocoinImage,
+  });
+  return generatedCoinData;
 }
 
 //MAIN LOOP
@@ -380,6 +381,7 @@ function draw() {
   for (var i = 0; i < coinData.length; i++) {
     //Update camera for nanocoin
     var cameraXforCoin = nanonautX - CANVAS_WIDTH;
+
     c.drawImage(
       coinData[i].image,
       coinData[i].x - cameraXforCoin,
