@@ -365,6 +365,32 @@ function nanonautCatchCoinAlongOneAxis(
   );
 }
 
+// THIS FUNCTION CHECK THE PARAMETERS OF THE NANONAUT AND THE COIN IN RELATION TO TWO AXES
+function doesNanonautOverlapCoin(
+  nanonautX,
+  nanonautY,
+  NANONAUT_WIDTH,
+  NANONAUT_HEIGHT,
+  coinX,
+  coinY,
+  COIN_WIDTH,
+  COIN_HEIGHT
+) {
+  var nanonautCatchCoinAlongOneXAxis = doesNanonautOverlapCoinAlongOneAxis(
+    nanonautX,
+    nanonautX + NANONAUT_WIDTH,
+    coinX,
+    coinX + COIN_WIDTH
+  );
+  var nanonautCatchCoinAlongOneYAxis = doesNanonautOverlapCointAlongOneAxis(
+    nanonautY,
+    nanonautY + NANONAUT_HEIGHT,
+    coinY,
+    coinY + COIN_HEIGHT
+  );
+  return nanonautCatchCoinAlongOneXAxis && nanonautCatchCoinAlongOneYAxis;
+}
+
 //DRAWING
 function draw() {
   //if necessary, shake the screen
