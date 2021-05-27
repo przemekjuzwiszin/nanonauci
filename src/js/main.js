@@ -345,6 +345,26 @@ function doesNanonautOverlapRobot(
   return nanonautOverlapsRobotOnXAxis && nanonautOverlapRobotOnYAxis;
 }
 
+//THIS FUNCTION CHECK THE COLLISION BETWEEN NANONAUT AND COIN
+function nanonautCatchCoinAlongOneAxis(
+  nanonautNearX,
+  nanonautFarX,
+  coinNearX,
+  coinFarX
+) {
+  var nanonautOverLapsNearCoinEdge =
+    nanonautFarX >= coinNearX && nanonautFarX <= coinFarX;
+  var nanonautOverLapsFarCoinEdge =
+    nanonautNearX >= coinNearX && nanonautNearX <= coinFarX;
+  var nanonautOverlapsEntireCoin =
+    nanonautFarX <= coinNearX && nanonautNearX >= coinFarX;
+  return (
+    nanonautOverLapsNearCoinEdge ||
+    nanonautOverLapsFarCoinEdge ||
+    nanonautOverlapsEntireCoin
+  );
+}
+
 //DRAWING
 function draw() {
   //if necessary, shake the screen
