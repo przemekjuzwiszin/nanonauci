@@ -104,6 +104,14 @@ var robotCollisionRectangle = {
   height: 100,
 };
 
+//This create collision area for coin
+var coinCollisionRectangle = {
+  xOffset: 30,
+  yOffset: 15,
+  width: 60,
+  height: 100,
+};
+
 //Short list of robots to test
 var robotData = [];
 
