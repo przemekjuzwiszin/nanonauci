@@ -253,7 +253,9 @@ function updateRobots() {
         robotCollisionRectangle.height
       )
     ) {
-      nanonautTouchedARobot = true;
+      if (CALCULATE_COLLISION_WITH_ROBOTS) {
+        nanonautTouchedARobot = true;
+      }
     }
     robotData[i].x -= ROBOT_X_SPEED;
     if (gameFrameCounter % ROBOT_ANIMATION_SPEED === 0) {
