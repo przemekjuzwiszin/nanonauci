@@ -148,8 +148,8 @@ function generateBushes() {
 function generateCoins() {
   var generatedCoinData = [];
   generatedCoinData.push({
-    x: coinX + Math.random() * CANVAS_WIDTH,
-    y: coinY,
+    x: coinGroundX + Math.random() * CANVAS_WIDTH,
+    y: coinGroundY,
     image: nanocoinImage,
   });
   return generatedCoinData;
