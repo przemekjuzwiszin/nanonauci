@@ -453,6 +453,15 @@ function draw() {
     );
   }
 
+  //Show coin counter image
+  c.drawImage(
+    nanocoinImage,
+    positionCoinCounterImageX,
+    positionCoinCounterImageY,
+    COUNTER_IMAGE_WIDTH,
+    COUNTER_IMAGE_HEIGHT
+  );
+
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
     drawAnimatedSprite(
