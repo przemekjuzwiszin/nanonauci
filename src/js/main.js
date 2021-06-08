@@ -214,6 +214,8 @@ function update() {
     }
   }
 
+  var nanonautCatchCoin = updateCoins();
+
   //Update robots
   screenshake = false;
   var nanonautTouchedARobot = updateRobots();
@@ -228,8 +230,9 @@ function update() {
   }
 
   for (var i = 0; i < coinData.length; i++) {
-    if (coinData[i].x - cameraX < -CANVAS_WIDTH) {
-      coinData[i].x += 2 * CANVAS_WIDTH + 2400;
+    var isCoinOutsideLeftCamera = coinData[i].x - cameraX < -CANVAS_WIDTH;
+    if (isCoinOutsideLeftCamera || nanonautCatchCoin) {
+      coinData[i].x += 2 * CANVAS_WIDTH;
     }
   }
 }
@@ -334,8 +337,29 @@ function doesNanonautOverlapRobot(
   return nanonautOverlapsRobotOnXAxis && nanonautOverlapRobotOnYAxis;
 }
 
+function updateCoins() {
+  var nanonautCatchCoin = false;
+  for (var i = 0; i < coinData.length; i++) {
+    if (
+      doesNanonautOverlapCoin(
+        nanonautX + nanonautCollisionRectangle.xOffset,
+        nanonautY + nanonautCollisionRectangle.yOffset,
+        nanonautCollisionRectangle.width,
+        nanonautCollisionRectangle.height,
+        coinData[i].x + coinCollisionRectangle.xOffset,
+        coinData[i].y + coinCollisionRectangle.yOffset,
+        coinCollisionRectangle.width,
+        coinCollisionRectangle.height
+      )
+    ) {
+      nanonautCatchCoin = true;
+    }
+  }
+  return nanonautCatchCoin;
+}
+
 //THIS FUNCTION CHECK THE COLLISION BETWEEN NANONAUT AND COIN
-function nanonautCatchCoinAlongOneAxis(
+function doesNanonautOverlapCoinAlongOneAxis(
   nanonautNearX,
   nanonautFarX,
   coinNearX,
@@ -346,7 +370,7 @@ function nanonautCatchCoinAlongOneAxis(
   var nanonautOverLapsFarCoinEdge =
     nanonautNearX >= coinNearX && nanonautNearX <= coinFarX;
   var nanonautOverlapsEntireCoin =
-    nanonautFarX <= coinNearX && nanonautNearX >= coinFarX;
+    nanonautNearX <= coinNearX && nanonautFarX >= coinFarX;
   return (
     nanonautOverLapsNearCoinEdge ||
     nanonautOverLapsFarCoinEdge ||
@@ -371,7 +395,7 @@ function doesNanonautOverlapCoin(
     coinX,
     coinX + COIN_WIDTH
   );
-  var nanonautCatchCoinAlongOneYAxis = doesNanonautOverlapCointAlongOneAxis(
+  var nanonautCatchCoinAlongOneYAxis = doesNanonautOverlapCoinAlongOneAxis(
     nanonautY,
     nanonautY + NANONAUT_HEIGHT,
     coinY,
@@ -414,13 +438,10 @@ function draw() {
 
   //Draw nanocoins
   for (var i = 0; i < coinData.length; i++) {
-    //Update camera for nanocoin
-    var cameraXforCoin = nanonautX - CANVAS_WIDTH;
-
     c.drawImage(
       coinData[i].image,
-      coinData[i].x - cameraXforCoin,
-      GROUND_Y - coinData[i].y - cameraY,
+      coinData[i].x - shakenCameraX,
+      coinData[i].y - shakenCameraY,
       COIN_WIDTH,
       COIN_HEIGHT
     );
