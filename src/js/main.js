@@ -31,6 +31,10 @@ var COIN_WIDTH = 80;
 var COIN_HEIGHT = 60;
 var coinGroundX = 800;
 var coinGroundY = GROUND_Y - 80;
+var positionCoinCounterImageX = 20;
+var positionCoinCounterImageY = 60;
+var COUNTER_IMAGE_WIDTH = 48;
+var COUNTER_IMAGE_HEIGHT = 48;
 var CALCULATE_COLLISION_WITH_ROBOTS = false;
 
 //PRECONFIGURATION
