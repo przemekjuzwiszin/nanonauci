@@ -29,8 +29,9 @@ var PLAY_GAME_MODE = 0;
 var GAME_OVER_GAME_MODE = 1;
 var COIN_WIDTH = 80;
 var COIN_HEIGHT = 60;
-var coinX = 800;
-var coinY = 80;
+var coinGroundX = 800;
+var coinGroundY = GROUND_Y - 80;
+var CALCULATE_COLLISION_WITH_ROBOTS = false;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
