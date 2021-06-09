@@ -22,6 +22,9 @@ Please visit the game website: [Nanonaut](https://przemekjuzwiszin.github.io/nan
 #### What I learned
 
 - Console support
+- Web browser API use
+- Drawing elements on canvas and loading images 
+- Braking up code into sections
 
 ##### Built with wtf-gulp-starter
 
