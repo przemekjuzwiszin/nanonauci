@@ -50,6 +50,11 @@ Please visit the game website: [Nanonaut](https://przemekjuzwiszin.github.io/nan
 - Different enemy behavior
 - Launching a nanonaut into the air when it collides with a robot
 
+### New features:
+
+- Nanonaut catch coin that disappear 🧚‍♀️
+
+![Game with new features](src/assets/img/github_coin.png)
 
 #### Built with wtf-gulp-starter:
 
