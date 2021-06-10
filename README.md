@@ -1,6 +1,6 @@
 ![Simple 2D game Nanonaut](src/assets/img/github.png)
 
-# Nanonaut
+# Nanonaut 🤔
 
 ## A simple 2D platform game:
 
@@ -11,7 +11,7 @@ The nanonaut overcomes endless obstacles and runs in one direction 🕹
 
 Please visit the game website: [Nanonaut](https://przemekjuzwiszin.github.io/nanonauci/)
 
-### Tools & technologies I've used:
+### Tools & technologies I've used: ⚒
 
 - Visual Studio Code
 - GIT
@@ -19,14 +19,39 @@ Please visit the game website: [Nanonaut](https://przemekjuzwiszin.github.io/nan
 - JavaScript
 - Gulp
 
-#### What I learned
+### I learned something about: 📖
 
 - Console support
 - Web browser API use
 - Drawing elements on canvas and loading images 
 - Braking up code into sections
+- Loop config 
+- Gravity in the game
+- Event handler control
+- Instructions: if
+- Loops: for, while
+- Function overloading and multitasking functions
+- Defensive programming
+- Update objects randomly 
+- Introducing game movement: viewport and scrolling
+- Animating: images and speed
+- Using arrays, objects, strings
+- Collision detection using collision areas
+- Using global and local variables
+- Lanching end game mode
 
-##### Built with wtf-gulp-starter
+### Futher development of the game: 📚
+
+- Addition of a nanocoin and coin counter
+- Show coin counter and distance in endgame mode on the screen
+- Make the game more difficult: adding speed to robots
+- New animation where the nanonaut will crouch
+- Flying enemies
+- Different enemy behavior
+- Launching a nanonaut into the air when it collides with a robot
+
+
+#### Built with wtf-gulp-starter:
 
 [wtf-gulp-starter](https://github.com/maciejkorsan/wtf-gulp-starter)
 
@@ -39,7 +64,7 @@ Please visit the game website: [Nanonaut](https://przemekjuzwiszin.github.io/nan
 To publish your page using github pages use `npm run deploy`
 
 
-###### If you are having problems installing npm packages and running gulp. Please follow the instructions below.
+#### If you are having problems installing npm packages and running gulp. Please follow the instructions below:
 
 1. Clear npm cache with 
 
