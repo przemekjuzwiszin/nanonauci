@@ -1,8 +1,15 @@
 "use strict";
 
-// place your code below
+/*
+   _____    ____    _   _    _____   _______              _   _   _______ 
+  / ____|  / __ \  | \ | |  / ____| |__   __|     /\     | \ | | |__   __|
+ | |      | |  | | |  \| | | (___      | |       /  \    |  \| |    | |   
+ | |      | |  | | | . ` |  \___ \     | |      / /\ \   | . ` |    | |   
+ | |____  | |__| | | |\  |  ____) |    | |     / ____ \  | |\  |    | |   
+  \_____|  \____/  |_| \_| |_____/     |_|    /_/    \_\ |_| \_|    |_|   
 
-//CONSTANT
+*/
+
 var CANVAS_WIDTH = 800;
 var CANVAS_HEIGHT = 600;
 var NANONAUT_WIDTH = 181;
@@ -39,7 +46,16 @@ var positionCoinScoreCounterX = 80;
 var positionCoinScoreCounterY = 102;
 var CALCULATE_COLLISION_WITH_ROBOTS = false;
 
-//PRECONFIGURATION
+/*
+_____    _____    ______    _____    ____    _   _   ______   _____    _____ 
+|  __ \  |  __ \  |  ____|  / ____|  / __ \  | \ | | |  ____| |_   _|  / ____|
+| |__) | | |__) | | |__    | |      | |  | | |  \| | | |__      | |   | |  __ 
+|  ___/  |  _  /  |  __|   | |      | |  | | | . ` | |  __|     | |   | | |_ |
+| |      | | \ \  | |____  | |____  | |__| | | |\  | | |       _| |_  | |__| |
+|_|      |_|  \_\ |______|  \_____|  \____/  |_| \_| |_|      |_____|  \_____|
+
+*/
+
 var canvas = document.createElement("canvas");
 var c = canvas.getContext("2d");
 canvas.width = CANVAS_WIDTH;
@@ -151,7 +167,6 @@ function generateBushes() {
   return generatedBushData;
 }
 
-//
 function generateCoins() {
   var generatedCoinData = [];
   generatedCoinData.push({
@@ -162,14 +177,32 @@ function generateCoins() {
   return generatedCoinData;
 }
 
-//MAIN LOOP
+/*
+  __  __              _____   _   _     _         ____     ____    _____  
+ |  \/  |     /\     |_   _| | \ | |   | |       / __ \   / __ \  |  __ \ 
+ | \  / |    /  \      | |   |  \| |   | |      | |  | | | |  | | | |__) |
+ | |\/| |   / /\ \     | |   | . ` |   | |      | |  | | | |  | | |  ___/ 
+ | |  | |  / ____ \   _| |_  | |\  |   | |____  | |__| | | |__| | | |     
+ |_|  |_| /_/    \_\ |_____| |_| \_|   |______|  \____/   \____/  |_|     
+                                                                          
+*/
+
 function mainLoop() {
   update();
   draw();
   window.requestAnimationFrame(mainLoop);
 }
 
-//CONTROL
+/*
+   _____    ____    _   _   _______   _____     ____    _      
+  / ____|  / __ \  | \ | | |__   __| |  __ \   / __ \  | |     
+ | |      | |  | | |  \| |    | |    | |__) | | |  | | | |     
+ | |      | |  | | | . ` |    | |    |  _  /  | |  | | | |     
+ | |____  | |__| | | |\  |    | |    | | \ \  | |__| | | |____ 
+  \_____|  \____/  |_| \_|    |_|    |_|  \_\  \____/  |______|
+                                                               
+*/
+
 function onKeyDown(event) {
   if (event.keyCode === SPACE_KEYCODE) {
     spaceKeyIsPressed = true;
@@ -182,7 +215,16 @@ function onKeyUp(event) {
   }
 }
 
-//UPDATE
+/*
+  _    _   _____    _____               _______   ______ 
+ | |  | | |  __ \  |  __ \      /\     |__   __| |  ____|
+ | |  | | | |__) | | |  | |    /  \       | |    | |__   
+ | |  | | |  ___/  | |  | |   / /\ \      | |    |  __|  
+ | |__| | | |      | |__| |  / ____ \     | |    | |____ 
+  \____/  |_|      |_____/  /_/    \_\    |_|    |______|
+                                                         
+*/
+
 function update() {
   if (gameMode != PLAY_GAME_MODE) return;
 
@@ -413,7 +455,16 @@ function doesNanonautOverlapCoin(
   return nanonautCatchCoinAlongOneXAxis && nanonautCatchCoinAlongOneYAxis;
 }
 
-//DRAWING
+/*
+  _____    _____              __          __  _____   _   _    _____ 
+ |  __ \  |  __ \      /\     \ \        / / |_   _| | \ | |  / ____|
+ | |  | | | |__) |    /  \     \ \  /\  / /    | |   |  \| | | |  __ 
+ | |  | | |  _  /    / /\ \     \ \/  \/ /     | |   | . ` | | | |_ |
+ | |__| | | | \ \   / ____ \     \  /\  /     _| |_  | |\  | | |__| |
+ |_____/  |_|  \_\ /_/    \_\     \/  \/     |_____| |_| \_|  \_____|
+                                                                     
+*/
+
 function draw() {
   //if necessary, shake the screen
   var shakenCameraX = cameraX;
