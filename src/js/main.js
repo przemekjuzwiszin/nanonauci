@@ -465,6 +465,15 @@ function draw() {
     COUNTER_IMAGE_HEIGHT
   );
 
+  //Show number of coins
+  c.fillStyle = "black";
+  c.font = "45px sans-serif";
+  c.fillText(
+    numberOfCoins,
+    positionCoinScoreCounterX,
+    positionCoinScoreCounterY
+  );
+
   //Draw robots
   for (var i = 0; i < robotData.length; i++) {
     drawAnimatedSprite(
