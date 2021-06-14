@@ -35,6 +35,8 @@ var positionCoinCounterImageX = 20;
 var positionCoinCounterImageY = 60;
 var COUNTER_IMAGE_WIDTH = 48;
 var COUNTER_IMAGE_HEIGHT = 48;
+var positionCoinScoreCounterX = 80;
+var positionCoinScoreCounterY = 102;
 var CALCULATE_COLLISION_WITH_ROBOTS = false;
 
 //PRECONFIGURATION
@@ -75,6 +77,7 @@ var screenshake = false;
 var nanonautFrameNr = 0;
 var gameFrameCounter = 0;
 var bushData = generateBushes();
+var numberOfCoins = 0;
 
 //array to x cordinates nanocoin
 var coinData = generateCoins();
