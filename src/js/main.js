@@ -37,7 +37,7 @@ var COUNTER_IMAGE_WIDTH = 48;
 var COUNTER_IMAGE_HEIGHT = 48;
 var positionCoinScoreCounterX = 80;
 var positionCoinScoreCounterY = 102;
-var CALCULATE_COLLISION_WITH_ROBOTS = false;
+var CALCULATE_COLLISION_WITH_ROBOTS = true;
 
 //PRECONFIGURATION
 var canvas = document.createElement("canvas");
